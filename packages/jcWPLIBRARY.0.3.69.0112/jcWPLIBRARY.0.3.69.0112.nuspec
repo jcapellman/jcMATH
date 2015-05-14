@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jcWPLIBRARY</id>
+    <version>0.3.69.0112</version>
+    <title>jcWPLIBRARY</title>
+    <authors>Jarred Capellman</authors>
+    <owners>Jarred Capellman</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://jcwplibrary.jarredcapellman.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A helper library for Windows Phone 8 Development to assist with XML File Handling and files in general across multiple sources. In addition the library also delivers device information cleanly.  Check the project site for a full sample and additional documentation.</description>
+    <releaseNotes />
+    <copyright />
+    <language>en-US</language>
+    <tags>wp8 xml</tags>
+    <references>
+      <reference file="jcWPLIBRARY.dll" />
+    </references>
+  </metadata>
+</package>

@@ -1,0 +1,44 @@
+﻿<phone:PhoneApplicationPage xmlns:Controls1="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"  xmlns:Controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives" 
+    x:Class="jcMATH.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <Controls:RadTransitionControl.Transition>
+        <Controls:RadFadeTransition />
+    </Controls:RadTransitionControl.Transition>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/background.jpg" />
+        </Grid.Background>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,0,0,28">            
+            <TextBlock Text="Settings" Foreground="Black" FontSize="64" />
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <StackPanel Orientation="Vertical">
+                <Controls:RadToggleSwitch Foreground="Black" DataContext="{Binding}" IsChecked="{Binding Settings.EnableAudio, Mode=TwoWay}">
+                    <Controls:RadToggleSwitch.Header>
+                        <TextBlock Foreground="Black" Text="enable speech synthesis" FontSize="40" FontWeight="Bold" />
+                    </Controls:RadToggleSwitch.Header>
+                </Controls:RadToggleSwitch>                
+            </StackPanel>
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

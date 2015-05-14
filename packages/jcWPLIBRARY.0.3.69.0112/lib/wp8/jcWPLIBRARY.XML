@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>jcWPLIBRARY</name>
+    </assembly>
+    <members>
+        <member name="T:jcWPLIBRARY.XML.XMLReaderItem">
+            <summary>
+            Base Object to inherit from
+            </summary>
+        </member>
+        <member name="M:jcWPLIBRARY.IO.FileManager.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Constructor for the FileManager
+            </summary>
+            <param name="AddIsolatedStorage">Defaulted to true assuming IsolatedStorage will be used</param>
+            <param name="loggingEnabled">Defaulted to false</param>
+        </member>
+        <member name="M:jcWPLIBRARY.IO.FileManager.GetFile(System.String)">
+            <summary>
+            Retrieves a File from the local store and by default attempts to pull from the secondary source
+            </summary>
+            <param name="fileName"></param>        
+            <returns></returns>
+        </member>
+        <member name="T:jcWPLIBRARY.LocalizedStrings_en">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.LocalizedStrings_en.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.LocalizedStrings_en.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.LocalizedStrings_en.IO_FileManager_GetFile_Failed">
+            <summary>
+              Looks up a localized string similar to jcWPLIBRARY.IO.FileManager.GetFile() - File {0} not found.
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.LocalizedStrings_en.IO_FileManager_GetFile_Found_Primary">
+            <summary>
+              Looks up a localized string similar to jcWPLIBRARY.IO.FileManager.GetFile() - File {0} found in IsolatedStorage.
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.LocalizedStrings_en.IO_FileManager_Initialized">
+            <summary>
+              Looks up a localized string similar to jcWPLIBRARY.IO.FileManager() - Initialized.
+            </summary>
+        </member>
+        <member name="T:jcWPLIBRARY.XML.XMLResult`1">
+            <summary>
+            Object that holds the XML Objects, Error Messages and Success/Failure of the Task
+            </summary>
+            <typeparam name="T">Class Object you wish to read/write to XML, must be a class inherited from XMLReaderItem</typeparam>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLResult`1.#ctor">
+            <summary>
+            Constructor for the XMLResult Object, resets the HasError, ErrorString and Result properties
+            </summary>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLResult`1.#ctor(jcWPLIBRARY.jcEXCEPTION)">
+            <summary>
+            Constructor accepts a jcEXCEPTION, sets HasError to true, the Result object to null and the ErrorString to the exception string
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLResult`1.#ctor(System.Collections.Generic.List{`0})">
+            <summary>
+            Constructor accepts the List collection and sets the Result object to that List, while resetting the HasError and ErrorString properties
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLResult`1.TojcResult">
+            <summary>
+            Converts the HasError and ErrorMsg to be compatible with other jc* projects
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:jcWPLIBRARY.XML.XMLResult`1.HasError">
+            <summary>
+            Variable holds whether or not an error occurred when reading or writing the XML
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.XML.XMLResult`1.ErrorString">
+            <summary>
+            Will be String.Empty if there are no errors, otherwise it will contain the cause of the error
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.XML.XMLResult`1.Result">
+            <summary>
+            List Collection of the XML Objects
+            </summary>
+        </member>
+        <member name="P:jcWPLIBRARY.XML.XMLResult`1.SingleOrDefault">
+            <summary>
+            Returns a single result, if no result exists, returns null;
+            </summary>
+        </member>
+        <member name="T:jcWPLIBRARY.XML.XMLHandler`1">
+            <summary>
+            XML Handler to assist with reading and writing XML Files
+            </summary>
+            <typeparam name="T">Class Object you wish to read/write to XML, must be a class inherited from XMLReaderItem</typeparam>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.#ctor(System.String)">
+            <summary>
+            Constructor for the XMLHandler
+            </summary>
+            <param name="fileName">Filename of the XML file to read or write to</param>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.LoadFile">
+            <summary>
+            Loads the filename specified at the XMLHandler Constructor
+            </summary>
+            <returns>XMLResult object of the XML found in the specified file</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.LoadFile(System.String)">
+            <summary>
+            Loads the specified file into an XMLResult Object.
+            </summary>
+            <param name="fileName">Filename to load</param>
+            <returns>XMLResult object of the XML found in the specified file</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.LoadFileAsync">
+            <summary>
+            Async version of the LoadFile function.  Uses the filename specified at the constructor and loads the file.
+            </summary>
+            <returns>XMLResult of the Load File Task</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.LoadFileAsync(System.String)">
+            <summary>
+            Loads the specified file asynchronously into an XMLResult Object.
+            </summary>
+            <param name="fileName">Filename to read from</param>
+            <returns>XMLResult of the Load File Task</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.WriteFileAsync(System.Collections.Generic.List{`0})">
+            <summary>
+            Write File Aynchronously to the file specified at the Constructor
+            </summary>
+            <returns>XMLResult of the Write File Task Success or Failure</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.WriteFileAsync(System.String,`0,System.IO.FileMode)">
+            <summary>
+            Write File Aynchronously to the file specified at the Constructor
+            </summary>
+            <param name="fileName">Filename to write to</param>
+            <param name="data">Class Object to write to the XML file</param>
+            <param name="fileMode">Specify if you want it to Create a file, Append etc.  The default is FileMode.Create</param>
+            <returns>XMLResult of the Write File Task Success or Failure</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.WriteFileAsync(System.String,System.Collections.Generic.List{`0},System.IO.FileMode)">
+            <summary>
+            Write File Aynchronously to the file specified at the Constructor
+            </summary>
+            <param name="fileName">Filename to write to</param>
+            <param name="data">List Collection of data to write to the XML file</param>
+            <param name="fileMode">Specify if you want it to Create a file, Append etc.  The default is FileMode.Create</param>
+            <returns>XMLResult of the Write File Task Success or Failure</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.WriteFile(`0)">
+            <summary>
+            Writes the specified filename and object to a XML file
+            </summary>
+            <param name="data">Class Object to write to the XML file</param>
+            <returns>XMLResult Object of the success or failure of the file write</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.WriteFile(System.Collections.Generic.List{`0})">
+            <summary>
+            Writes the specified filename and List collection to a XML file
+            </summary>
+            <param name="data">List Collection of data to write to the XML file</param>
+            <returns>XMLResult Object of the success or failure of the file write</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.WriteFile(System.String,`0,System.IO.FileMode)">
+            <summary>
+            Writes the specified filename and object to an XML file
+            </summary>
+            <param name="fileName">Filename to write to</param>
+            <param name="data">Class Object to write to the XML file</param>
+            <param name="fileMode">Specify if you want it to Create a file, Append etc.  The default is FileMode.Create</param>
+            <returns>XMLResult Object of the success or failure of the file write</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.WriteFile(System.String,System.Collections.Generic.List{`0},System.IO.FileMode)">
+            <summary>
+            Writes the specified filename and List collection to an XML file
+            </summary>
+            <param name="fileName">Filename to write to</param>
+            <param name="data">List Collection of data to write to the XML file</param>
+            <param name="fileMode">Specify if you want it to Create a file, Append etc.  The default is FileMode.Create</param>
+            <returns>XMLResult Object of the success or failure of the file write</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.DeleteFile">
+            <summary>
+            Deletes the file specified at the constructor from IsolatedStorage
+            </summary>
+            <returns>XMLResult Object returns the success or failure of the deletion</returns>
+        </member>
+        <member name="M:jcWPLIBRARY.XML.XMLHandler`1.DeleteFile(System.String)">
+            <summary>
+            Deletes the specified file from IsolatedStorage
+            </summary>
+            <param name="fileName">Filename of the file you wish to delete</param>
+            <returns>XMLResult Object returns the success or failure of the deletion</returns>
+        </member>
+    </members>
+</doc>
